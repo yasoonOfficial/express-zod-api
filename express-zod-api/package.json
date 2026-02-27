@@ -1,11 +1,15 @@
 {
-  "name": "express-zod-api",
+  "name": "@yasoonofficial/express-zod-api",
   "version": "27.0.1",
   "description": "A Typescript framework to help you get an API server up and running with I/O schema validation and custom middlewares in minutes.",
   "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RobinTail/express-zod-api.git"
+    "url": "git://github.com/yasoonOfficial/express-zod-api.git",
+    "directory": "packages/express-zod-api"
   },
   "homepage": "https://ez.robintail.cz",
   "author": {
@@ -13,15 +17,11 @@
     "url": "https://robintail.cz",
     "email": "me@robintail.cz"
   },
-  "bugs": "https://github.com/RobinTail/express-zod-api/issues",
-  "funding": "https://github.com/sponsors/RobinTail",
   "scripts": {
     "build": "tsdown",
     "pretest": "tsc",
-    "test": "vitest run --coverage",
     "bench": "vitest bench --run ./bench",
-    "prepublishOnly": "eslint && pnpm -r build && pnpm test",
-    "prepack": "cp ../*.md ../LICENSE ./"
+    "prepublishOnly": "eslint && pnpm -r build"
   },
   "type": "module",
   "sideEffects": true,

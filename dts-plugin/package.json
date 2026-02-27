@@ -7,7 +7,7 @@
   "type": "module",
   "main": "./dist/index.js",
   "scripts": {
-    "prebuild": "rm -rf dist",
+    "prebuild": "rimraf dist",
     "build": "tsc"
   },
   "devDependencies": {
