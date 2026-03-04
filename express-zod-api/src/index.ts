@@ -1,12 +1,13 @@
 import "@express-zod-api/zod-plugin"; // side effects here
 export { createConfig } from "./config-type";
+export { Endpoint, type Handler } from "./endpoint";
 export {
   EndpointsFactory,
   defaultEndpointsFactory,
   arrayEndpointsFactory,
 } from "./endpoints-factory";
 export { getMessageFromError } from "./common-helpers";
-export { ensureHttpError } from "./result-helpers";
+export { ensureHttpError, getPublicErrorMessage } from "./result-helpers";
 export { BuiltinLogger } from "./builtin-logger";
 export { Middleware } from "./middleware";
 export {
