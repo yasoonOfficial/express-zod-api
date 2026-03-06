@@ -1,6 +1,6 @@
 {
   "name": "@yasoonofficial/express-zod-api",
-  "version": "27.0.2",
+  "version": "27.0.5",
   "description": "A Typescript framework to help you get an API server up and running with I/O schema validation and custom middlewares in minutes.",
   "license": "MIT",
   "publishConfig": {
@@ -42,11 +42,11 @@
     "node": "^20.19.0 || ^22.12.0 || ^24.0.0"
   },
   "dependencies": {
-    "@express-zod-api/zod-plugin": "workspace:^",
+    "@express-zod-api/zod-plugin": "^4.0.1",
     "ansis": "^4.2.0",
     "node-mocks-http": "^1.17.2",
     "openapi3-ts": "^4.5.0",
-    "ramda": "catalog:prod"
+    "ramda": "^0.32.0"
   },
   "peerDependencies": {
     "@types/compression": "^1.7.5",
