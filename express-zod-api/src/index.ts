@@ -9,7 +9,11 @@ export {
 export { getMessageFromError } from "./common-helpers";
 export { ensureHttpError, getPublicErrorMessage } from "./result-helpers";
 export { BuiltinLogger } from "./builtin-logger";
-export { Middleware, ExpressMiddleware, AbstractMiddleware } from "./middleware";
+export {
+  Middleware,
+  ExpressMiddleware,
+  AbstractMiddleware,
+} from "./middleware";
 export {
   ResultHandler,
   defaultResultHandler,
