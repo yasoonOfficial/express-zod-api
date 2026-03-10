@@ -69,7 +69,7 @@ export abstract class AbstractEndpoint {
   /** @internal */
   public abstract get inputSchema(): IOSchema;
   /** @internal */
-  public abstract get outputSchema(): IOSchema;
+  public abstract get outputSchema(): IOSchema | z.ZodVoid;
   /** @internal */
   public abstract get security(): LogicalContainer<Security>[];
   /** @internal */
@@ -84,7 +84,7 @@ export abstract class AbstractEndpoint {
 
 export class Endpoint<
   IN extends IOSchema,
-  OUT extends IOSchema,
+  OUT extends IOSchema | z.ZodVoid,
   CTX extends FlatObject,
 > extends AbstractEndpoint {
   readonly #def: ConstructorParameters<typeof Endpoint<IN, OUT, CTX>>[0];

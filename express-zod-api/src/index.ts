@@ -12,7 +12,7 @@ export { BuiltinLogger } from "./builtin-logger";
 export {
   Middleware,
   ExpressMiddleware,
-  AbstractMiddleware,
+  type AbstractMiddleware,
 } from "./middleware";
 export {
   ResultHandler,
