@@ -1,12 +1,5 @@
 packages:
   - express-zod-api
-  - zod-plugin
-  - migration
-  - example
-  - cjs-test
-  - esm-test
-  - compat-test
-  - issue952-test
 gitChecks: false
 engineStrict: true
 autoInstallPeers: false
