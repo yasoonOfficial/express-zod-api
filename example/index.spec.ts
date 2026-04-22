@@ -13,7 +13,7 @@ describe("Example", async () => {
     out += chunk.toString();
   };
   const matchOut = (regExp: RegExp) => regExp.test(out);
-  const example = spawn("tsx", ["index.ts"]);
+  const example = spawn("unrun", ["index.ts"]);
   example.stdout.on("data", listener);
   const port = givePort("example");
   await vi.waitFor(() => assert(out.includes(`Listening`)), { timeout: 1e4 });
@@ -111,19 +111,31 @@ describe("Example", async () => {
       expect(json).toMatchSnapshot();
     });
 
+    test("Should respond with paginated list (ez.paginated)", async () => {
+      const response = await fetch(`http://localhost:${port}/v2/users/list`);
+      expect(response.status).toBe(200);
+      const json = await response.json();
+      expect(json).toMatchSnapshot();
+    });
+
     test.each([
       "roles=admin,operator",
       "roles[]=admin&roles[]=operator",
       "roles=admin&roles=operator",
     ])("Should support arrays in query %#", async (query) => {
       const response = await fetch(
-        `http://localhost:${port}/v1/user/list?${query}`,
+        `http://localhost:${port}/v2/users/list?${query}`,
       );
       expect(response.status).toBe(200);
-      const json = await response.json();
-      if (!Array.isArray(json)) fail("should be an array");
+      const json = (await response.json()) as {
+        data?: { users?: Array<{ role: string }> };
+      };
+      const users = json.data?.users;
+      if (!Array.isArray(users)) fail("response.data.users should be an array");
       expect(
-        json.every((one) => ["admin", "operator"].includes(one.role)),
+        users.every((one: { role: string }) =>
+          ["admin", "operator"].includes(one.role),
+        ),
       ).toBeTruthy();
     });
 

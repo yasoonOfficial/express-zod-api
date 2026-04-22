@@ -20,7 +20,7 @@ jobs:
           fetch-depth: 0 # to figure out last change to the json file
 
       - uses: fregante/setup-git-user@v2
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v5
 
       - uses: actions/setup-node@v6
         with:
@@ -31,7 +31,7 @@ jobs:
         run: pnpm install
 
       - name: Check for new headers on IANA.ORG
-        run: pnpm tsx tools/headers.ts
+        run: pnpm unrun tools/headers.ts
 
       - name: Check for changes
         id: git-state
