@@ -1,9 +1,29 @@
 packages:
   - express-zod-api
-gitChecks: false
-engineStrict: true
 autoInstallPeers: false
+catalogs:
+  dev:
+    "@types/compression": "^1.8.1"
+    "@types/express": "^5.0.6"
+    "@types/express-fileupload": "^1.5.1"
+    "@types/http-errors": "^2.0.5"
+    "@types/ramda": "^0.31.1"
+    "@typescript-eslint/rule-tester": "^8.51.0"
+    "camelize-ts": "^3.0.0"
+    "compression": "^1.8.1"
+    "express": "^5.2.1"
+    "express-fileupload": "^1.5.2"
+    "http-errors": "^2.0.1"
+    "typescript": "^6.0.2"
+    "typescript-eslint": "^8.51.0"
+    "zod": "^4.3.4"
+  peer:
+    "zod": "^4.3.4"
+  prod:
+    "ramda": "^0.32.0"
 dedupePeers: true
+engineStrict: true
+gitChecks: false
 minimumReleaseAge: 2880 # 2 days
 minimumReleaseAgeExclude:
   - "@types/*"
@@ -32,6 +52,11 @@ minimumReleaseAgeExclude:
   - vite
   - vitest
   - zod
+overrides:
+  "@scarf/scarf": "-"
+  brace-expansion@>=5.0.0 <5.0.6: '>=5.0.6'
+  "lightningcss": "-"
+  qs@>=6.11.1 <=6.15.1: '>=6.15.2'
 publicHoistPattern:
   - "@typescript-eslint/*" # used as an assumed transitive in migration
   - "@vitest/*" # used by vitest.setup.ts and vitest.config.ts
@@ -40,26 +65,3 @@ publicHoistPattern:
   - "@types/qs" # used by index.ts, fixes TS2742 for attachRouting
   - "@types/express-serve-static-core" # used by index.ts, fixes TS2742 for attachRouting
   - "rolldown" # used by readableDts tool
-catalogs:
-  prod:
-    "ramda": "^0.32.0"
-  peer:
-    "zod": "^4.3.4"
-  dev:
-    "@types/compression": "^1.8.1"
-    "@types/express": "^5.0.6"
-    "@types/express-fileupload": "^1.5.1"
-    "@types/http-errors": "^2.0.5"
-    "@types/ramda": "^0.31.1"
-    "@typescript-eslint/rule-tester": "^8.51.0"
-    "camelize-ts": "^3.0.0"
-    "compression": "^1.8.1"
-    "express": "^5.2.1"
-    "express-fileupload": "^1.5.2"
-    "http-errors": "^2.0.1"
-    "typescript": "^6.0.2"
-    "typescript-eslint": "^8.51.0"
-    "zod": "^4.3.4"
-overrides:
-  "@scarf/scarf": "-"
-  "lightningcss": "-"
